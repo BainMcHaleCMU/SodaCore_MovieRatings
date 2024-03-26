@@ -1,5 +1,5 @@
 # Using Soda Core to Check Movie Data
-
+Github associated with article: https://medium.com/@bainmchalecmu/using-soda-core-with-postgresdb-b359d6910234
 ## Setting Up Movie Rating Database
 Go ahead and start the postgres database in a docker environment.
 
