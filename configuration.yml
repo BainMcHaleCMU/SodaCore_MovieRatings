@@ -1,0 +1,15 @@
+# Connect to AdventureWorks example data source 
+# https://go.soda.io/connect-ds
+data_source postgresdb:
+  type: postgres
+  connection:
+    host: localhost
+    username: user
+    password: password
+  database: recommender_db
+  schema: public
+# Connect to your Soda platform account 
+soda_cloud:
+  host: cloud.us.soda.io
+  api_key_id: YOUR_API_KEY_ID
+  api_key_secret: XYOUR_API_KEY_SECRET

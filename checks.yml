@@ -1,0 +1,28 @@
+# Run a Soda scan to execute these checks for data quality on AdventureWorks data
+# https://go.soda.io/checks
+checks for ratings:
+  # Makse sure information is not missing
+  - missing_count(rating) = 0:
+      name: Ensure there are no null values in the rating column
+  - missing_count(user_id) = 0:
+      name: Ensure there are no null values in the rating column
+  - missing_count(movie_id) = 0:
+      name: Ensure there are no null values in the rating column
+  - missing_count(rating_time) = 0:
+      name: Ensure there are no null values in the rating column
+  # Check values for ratings
+  - max(rating) = 5:
+      name: Ratings are at most 5
+  - min(rating) = 1:
+      name: Ratings are at least 1
+  # make sure ratings are recent
+  - invalid_count(rating_time) = 0:
+      valid format: timestamp 24h
+      name: rating times are valid timestamps
+  - freshness(rating_time) < 7d:
+      name: Data in this dataset is less than 7 days old
+  # Requires a Soda platform account
+  - schema:
+      warn:
+        when schema changes: any
+      name: Columns have not been added, removed, or changed
